@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Message</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .message-container {
+        text-align: center;
+        animation: fadeIn 1s ease;
+    }
+
+    .message {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .smiley-container {
+        margin-bottom: 20px;
+    }
+
+    .smiley {
+        font-size: 48px;
+        margin-bottom: 10px; /* Added margin bottom */
+    }
+
+    .button {
+        background-color: orange;
+        color: black;
+        border: none;
+        padding: 8px 16px; /* Reduced padding */
+        font-size: 14px; /* Reduced font size */
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s; /* Added transition */
+        display: inline-block;
+        width: auto; /* Adjusted width */
+        margin-top: 10px; /* Added margin top */
+        margin-left: 10px; /* Added margin left */
+    }
+
+    .button:hover {
+        background-color: #ff7f00;
+        transform: scale(1.1); /* Enlarge on hover */
+        box-shadow: 0 0 10px #ff7f00; /* Add shadow on hover */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="message-container">
+    <div class="message">Dear Visitor,</div>
+    <div class="message">We deeply appreciate you reaching out to us.</div>
+    <div class="message">Your message is important to us, and we'll get back to you shortly.</div>
+    <div class="smiley-container">
+        <div class="smiley">&#128522;</div>
+    </div>
+    <a href="index.html" class="button">Go back to Home</a>
+</div>
+</body>
+</html>

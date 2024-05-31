@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarSense</title>
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV6rpIefgXxm1NJRpaBUjxN0m4m8Al_EyMBQ&s">
+    <title>CarSense-Know your car price</title>
+    
     <style>
         body {
             margin: 0;
@@ -13,13 +15,19 @@
         }
 
         .header {
-            background-color: #1e1e1e;
-            padding: 20px 0;
+            background-color: #000000;
+            padding: 10px 0;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -28,24 +36,43 @@
         }
 
         .nav {
-            float: right;
+            display: flex;
+            gap: 10px;
         }
 
         .nav a {
             color: #f0f0f0;
             text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s ease;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .nav a:hover {
             color: #ff6f00;
         }
 
+        .nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 111, 0, 0.3), transparent);
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover::before {
+            left: 100%;
+        }
+
         .hero {
             text-align: center;
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1e1e1e 0%, #2b2b2b 100%);
+            padding: 100px 0px;
+            background: url('https://cdn.dribbble.com/users/32512/screenshots/4403244/media/c5729eb9788d0b219325e50a31288698.gif') no-repeat center center;
+            background-size: cover;
         }
 
         .hero-title {
@@ -56,6 +83,7 @@
         .hero-subtitle {
             font-size: 1.5em;
             color: #f0f0f0;
+            margin: 20px 0;
         }
 
         .btn {
@@ -67,15 +95,36 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
         }
 
         .btn:hover {
-            background-color: #e65c00;
+            background-color: #b12a47;
+            transform: scale(1.05); /* Slightly increase size on hover */
         }
 
-        .about, .features, .contact {
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 111, 0, 0.3), transparent);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .contact, .about {
+            background-color: #000000;
             padding: 50px 0;
+            text-align: center;
         }
 
         h2 {
@@ -83,34 +132,67 @@
             margin-bottom: 20px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .about h2 {
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid #2b2b2b;
+        .about h2:hover {
+            transform: scale(1.1);
         }
 
-        .contact a {
-            color: #ff6f00;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact a:hover {
-            color: #e65c00;
+        .about-content {
+            margin-top: 20px;
+            transition: opacity 0.3s ease;
+            height: 0;
         }
 
         .footer {
-            background-color: #1e1e1e;
+            background-color: #000000;
             text-align: center;
             padding: 20px 0;
         }
 
         .footer p {
             margin: 0;
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav a {
+                margin-bottom: 10px;
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+
+            .hero-title {
+                font-size: 2.5em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .contact, .about {
+                padding: 30px 0;
+            }
         }
     </style>
 </head>
@@ -121,50 +203,70 @@
             <nav class="nav">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#contact">Contact Us</a>
+                <a href="/check">Know Your Car Price</a>
+                <a href="/contact">Contact Us</a>
             </nav>
         </div>
     </header>
 
+    
     <section id="home" class="hero">
         <div class="container">
             <h1 class="hero-title">Welcome to CarSense</h1>
             <p class="hero-subtitle">Know your car's worth instantly.</p>
-            <a href="#features" class="btn">Learn More</a>
+            <a href="/check" class="btn">Check Now</a>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-            <h2>About CarSense</h2>
-            <p>CarSense provides accurate and up-to-date information on second-hand car prices. Our platform is user-friendly and gives you an instant estimate of your car's worth.</p>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Features</h2>
-            <ul>
-                <li>Instant Car Price Estimates</li>
-                <li>Comprehensive Car Database</li>
-                <li>User-Friendly Interface</li>
-                <li>Contact Us for More Information</li>
-            </ul>
+            <h2 onclick="toggleAboutContent()">About CarSense</h2>
+            <div class="about-content" id="aboutContent">
+                <p></p>
+            </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Have questions? Reach out to us at <a href="mailto:info@carsense.com">info@carsense.com</a>.</p>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 CarSense. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+                <p>Have questions? Reach out to us by clicking the button below.</p>
+                <a href="/contact" class="btn">Contact Now</a>
+            </div>
+        </section>
+    
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 CarSense. All rights reserved.</p>
+            </div>
+        </footer>
+    
+        <script>
+            const aboutText = "CarSense provides accurate and up-to-date information on second-hand car prices. Our platform is user-friendly and gives you an instant estimate of your car's worth.";
+            let isTyping = false;
+            let hasTyped = false;
+        
+            function toggleAboutContent() {
+                const content = document.getElementById('aboutContent');
+        
+                if (!isTyping && !hasTyped) {
+                    isTyping = true;
+                    content.style.display = 'block';
+                    content.style.height = 'auto';
+                    content.style.opacity = 1;
+                    typeText(aboutText, 0, content.querySelector('p'));
+                    hasTyped = true;
+                }
+            }
+        
+            function typeText(text, index, element) {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    setTimeout(() => typeText(text, index + 1, element), 50);
+                } else {
+                    isTyping = false;
+                }
+            }
+        </script>
+    </body>
+    </html>

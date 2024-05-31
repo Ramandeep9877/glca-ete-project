@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carso - Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            color: #f39c12;
+        }
+        header nav a {
+            color: #f0f0f0;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .result-section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .result-section h2 {
+            color: #f39c12;
+        }
+        .result-section p {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .car-animation {
+            position: absolute;
+            bottom: 25px; /* Adjust this value to position it over the price */
+            left: -100px; /* Start off-screen */
+            transform: scaleX(-1); /* Flip the car emoji to face right */
+            font-size: 50px; /* Adjust size of the emoji */
+            animation: driveAcross 5s ease-in-out forwards;
+        }
+        @keyframes driveAcross {
+            0% { left: -100px; }
+            90% { left: calc(100% + 50px); }
+            100% { left: calc(100% + 50px); opacity: 0; }
+        }
+        #price-result {
+            position: relative; /* Ensures the car can overlap this element */
+            z-index: 1;
+        }
+        .footer {
+            background-color: #000000;
+            padding: 10px 0;
+            text-align: center;
+            color: #f0f0f0;
+        }
+        .containerr {
+            width: 90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CarSense</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/contact">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="result-section">
+                <h2>Car Price Prediction</h2>
+                <p>Your car's predicted price is:</p>
+                <div class="car-animation">🚗</div> <!-- Flipped car emoji -->
+                <p id="price-result">{{ car_price }}</p>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="containerr">
+            <p>&copy; 2024 CarSense. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
